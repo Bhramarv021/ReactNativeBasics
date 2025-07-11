@@ -1,6 +1,6 @@
 import { View } from "react-native";
-// import SectionListEx from "./components/SectionListEx";
 import FlatListEx from "./components/FlatListEx";
+import SectionListEx from "./components/SectionListEx";
 
 export default function Index() {
   return (
@@ -12,6 +12,7 @@ export default function Index() {
       }}
     >
       <FlatListEx />
+      <SectionListEx />
     </View>
   );
 }
