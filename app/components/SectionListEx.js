@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, SectionList, Text, View } from 'react-native';
+import { SafeAreaView, SectionList, StatusBar, Text, View, StyleSheet } from 'react-native';
 const SectionListEx = (props) => {
     const sectionListDummyData = [
         {
@@ -15,7 +15,7 @@ const SectionListEx = (props) => {
             data: ['Milk', 'Cheese', 'Yogurt'],
         },
         {
-            title: 'Vegetables',
+            title: 'Vegetables List 2',
             data: ['Carrot', 'Broccoli', 'Spinach'],
         },
     ];
@@ -28,16 +28,16 @@ const SectionListEx = (props) => {
             </View>
         )
     };
-    
+
     return (
         <SafeAreaView>
             <SectionList
-                style={[{marginTop: 20, height: 200}]}
+                style={[styles.container, {height: 200}]}
                 scrollEnabled={true}
                 sections={sectionListDummyData}
                 keyExtractor={(item, index) => item + index}
-                renderItem={({item}) => ( 
-                    <Item itemData={item} />
+                renderItem={(it) => ( 
+                    <Item itemData={it.item} />
                     // <Text>{item}</Text>
                 )}
                 renderSectionHeader={({section: {title}}) => (
@@ -45,9 +45,9 @@ const SectionListEx = (props) => {
                         <Text>{title}</Text>
                     </View>
                 )}
-                renderSectionFooter={({section: {title}}) => (
+                renderSectionFooter={(sectionItems) => (
                     <View style={[{backgroundColor: 'orange'}]}>
-                        <Text>{title}</Text>
+                        <Text>{sectionItems.section.title}</Text>
                     </View>
                 )}
             />
@@ -56,3 +56,9 @@ const SectionListEx = (props) => {
 }
 
 export default SectionListEx;
+
+const styles = StyleSheet.create({
+    container: {
+        marginTop: StatusBar.currentHeight
+    }
+})

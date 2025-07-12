@@ -1,18 +1,24 @@
-import { View } from "react-native";
-import FlatListEx from "./components/FlatListEx";
-import SectionListEx from "./components/SectionListEx";
+import { ScrollView, View } from "react-native";
+import SectionListEx from "./components/SectionListEx.js";
+import FlatListEx from "./components/FlatListEx.js";
+import ModalEx from "./components/ModalEx.js"
+import StatusBarEx from "./components/StatusBarEx.js"
 
 export default function Index() {
   return (
-    <View
-      style={{
-        // alignSelf: 'center',
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <FlatListEx />
-      <SectionListEx />
-    </View>
+    <ScrollView>
+      <View
+        style={{
+          // alignSelf: 'center',
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <FlatListEx />
+        <SectionListEx />
+        <ModalEx />
+        <StatusBarEx />
+      </View>
+    </ScrollView>
   );
 }
